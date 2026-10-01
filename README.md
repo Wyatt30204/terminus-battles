@@ -2,9 +2,9 @@
 
 A keyboard-first tower-defense game where you write GDScript plans to build towers, send bloons, and survive waves. Play locally, host a direct online duel, or team up in co-op.
 
-## Play the packaged build
+## Run the game
 
-Get `Terminus-Battles-Playtest.zip` from the GitHub Releases page, extract it, and launch `Start_Terminus_Battles.bat`. The ZIP includes the Windows Godot runtime so your friend does not need to install Godot.
+Install Godot 4.7.1, import `project/project.godot`, and press **F6/F5** or run the project from the editor. The ready-to-play ZIP is kept outside the public source repository because it includes the Godot runtime and third-party music.
 
 ## Open and edit the game
 
@@ -16,7 +16,7 @@ The full player guide is in [`project/README.md`](project/README.md). It covers 
 
 ## Build a friend-ready ZIP
 
-On Windows, run `Build_Playtest_Zip.ps1` from this folder. It rebuilds `Terminus-Battles-Playtest.zip` with the game project, music and voice folders, launcher, and Godot runtime. The generated ZIP and runtime executable are intentionally excluded from Git history; share ZIPs through GitHub Releases instead.
+On Windows, place the Godot 4.7.1 runtime executable beside `Build_Playtest_Zip.ps1`, then run the script. It creates `Terminus-Battles-Playtest.zip` with the game project, available music and voice folders, launcher, and Godot runtime. Add audio you have permission to redistribute under `project/music/` before building if you want music in your package. The generated ZIP and runtime executable are excluded from Git history.
 
 ## Repository contents
 

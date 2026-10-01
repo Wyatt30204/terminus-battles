@@ -167,16 +167,16 @@ const STREAKS := {
 	"nuke": {"pops": 10, "cost": 3000},
 }
 const GDSCRIPT_COURSE := [
-	{"title":"Your first command", "lesson":"Godot stores a game as a Scene made from Nodes. This screen is built from UI Nodes; the board is a custom Control Node. The planner runs a GDScript plan that calls methods such as build(), and records those game actions for the round.", "example":"build(\"dart\", 4, 3)", "challenge":"Build one Dart tower on an open tile.", "goal":"build"},
-	{"title":"Variables and notebook aliases", "lesson":"A GDScript variable names a value and starts with var. The notebook also supports a short alias line: dart = \"dart\". That line is a notebook reference (not a GDScript declaration); the planner substitutes the saved value when it sees bare dart in build(dart, ...).", "example":"build(dart, 4, 3)", "challenge":"Save the dart alias in your notebook, then build using build(dart, 4, 3).", "goal":"alias"},
-	{"title":"Typed values and coordinates", "lesson":"GDScript can calculate values before using them. Add a type after the variable name to catch mistakes early; int means a whole number and String means text.", "example":"var lane: int = 2 + 2\nbuild(\"dart\", lane, 3)", "challenge":"Calculate a coordinate in a variable and use it in a build action.", "goal":"variable"},
-	{"title":"Conditions", "lesson":"An if statement runs indented code only when its condition is true. The planner exposes money, lives, round_number, and streak_count.", "example":"if money >= 100:\n    build(\"dart\", 4, 3)", "challenge":"Use an if check before building a tower.", "goal":"condition"},
-	{"title":"Loops", "lesson":"A for loop repeats an indented block. range(3) gives 0, 1, and 2. Keep each placement on a different open tile.", "example":"for x in range(3):\n    build(\"dart\", x, 1)", "challenge":"Use a loop to place at least two towers.", "goal":"loop"},
-	{"title":"Arrays", "lesson":"An Array stores an ordered list. Loop through the list to reuse one action for each value.", "example":"var lanes = [1, 3, 5]\nfor x in lanes:\n    build(\"dart\", x, 1)", "challenge":"Create an array of coordinates and loop over it to place at least two towers.", "goal":"array"},
-	{"title":"Dictionaries", "lesson":"A Dictionary maps keys to values. Use square brackets to read a value by key, then use it in an action.", "example":"var plan = {\"kind\": \"dart\", \"x\": 4}\nbuild(plan[\"kind\"], plan[\"x\"], 3)", "challenge":"Create a dictionary and use its stored tower name and coordinate in a build.", "goal":"dictionary"},
-	{"title":"Godot scenes, Nodes, and methods", "lesson":"A Scene is a reusable Node tree. Nodes own behavior and children; this game uses Control Nodes for its interface and a Timer Node for battle ticks. The planner API is a RefCounted script that records build(), send(), and upgrade() method calls. In your notebook, write a real no-argument method such as func opening(): followed by an indented build(...). Save it as opening, then call opening() from the planner.", "example":"opening()", "challenge":"Save a GDScript method named opening in the notebook, then call opening() in the planner.", "goal":"notebook"},
-	{"title":"Read game state", "lesson":"Plans can react to the current match state. Use lives, money, round_number, and streak_count to choose actions.", "example":"if lives < 50:\n    build(\"medic\", 4, 4)\nif round_number >= 3:\n    upgrade(4, 4)", "challenge":"Use a game-state value in a condition and queue a valid action.", "goal":"state"},
-	{"title":"Capstone: compose a strategy", "lesson":"Combine typed values, conditions, arrays or loops, and methods. Godot also uses signals to let Nodes react to events, Resources to hold reusable data, and Scenes to package Nodes. This training planner runs safe GDScript against the game-action API; editing project Scenes and Node scripts happens in the Godot editor.", "example":"var kind = \"dart\"\nif money >= 200:\n    for x in range(2):\n        build(kind, x, 1)", "challenge":"Write one plan combining a variable, an if condition, and a loop that queues at least two actions.", "goal":"capstone"},
+	{"title":"Your first command", "lesson":"Godot stores a game as a Scene made from Nodes. This screen is built from UI Nodes; the board is a custom Control Node. The planner runs a GDScript plan that calls methods such as build(), and records those game actions for the round.", "example":"build(\"dart\", 4, 3)", "challenge":"Build one Dart tower on an open tile.", "hint":"Coordinates are column first, then row. Try a tile above or below the road.", "goal":"build"},
+	{"title":"Variables and notebook aliases", "lesson":"A GDScript variable names a value and starts with var. The notebook also supports a short alias line: dart = \"dart\". That line is a notebook reference (not a GDScript declaration); the planner substitutes the saved value when it sees bare dart in build(dart, ...).", "example":"build(dart, 4, 3)", "challenge":"Save the dart alias in your notebook, then build using build(dart, 4, 3).", "hint":"In Notebook, keep dart = \"dart\" on its own line. In the planner, write build(dart, column, row) without quotes around the alias.", "goal":"alias"},
+	{"title":"Typed values and coordinates", "lesson":"GDScript can calculate values before using them. Add a type after the variable name to catch mistakes early; int means a whole number and String means text.", "example":"var lane: int = 2 + 2\nbuild(\"dart\", lane, 3)", "challenge":"Calculate a coordinate in a variable and use it in a build action.", "hint":"Start with var lane: int = 2 + 2, then pass lane where build() expects the x coordinate.", "goal":"variable"},
+	{"title":"Conditions", "lesson":"An if statement runs indented code only when its condition is true. The planner exposes money, lives, round_number, and streak_count.", "example":"if money >= 100:\n    build(\"dart\", 4, 3)", "challenge":"Use an if check before building a tower.", "hint":"Write if money >= 100: and indent the build() call by four spaces.", "goal":"condition"},
+	{"title":"Loops", "lesson":"A for loop repeats an indented block. range(3) gives 0, 1, and 2. Keep each placement on a different open tile.", "example":"for x in range(3):\n    build(\"dart\", x, 1)", "challenge":"Use a loop to place at least two towers.", "hint":"Use range(2) for two x values. Indent build() so it stays inside the loop.", "goal":"loop"},
+	{"title":"Arrays", "lesson":"An Array stores an ordered list. Loop through the list to reuse one action for each value.", "example":"var lanes = [1, 3, 5]\nfor x in lanes:\n    build(\"dart\", x, 1)", "challenge":"Create an array of coordinates and loop over it to place at least two towers.", "hint":"Put two or more x coordinates between square brackets, then use for x in lanes:.", "goal":"array"},
+	{"title":"Dictionaries", "lesson":"A Dictionary maps keys to values. Use square brackets to read a value by key, then use it in an action.", "example":"var plan = {\"kind\": \"dart\", \"x\": 4}\nbuild(plan[\"kind\"], plan[\"x\"], 3)", "challenge":"Create a dictionary and use its stored tower name and coordinate in a build.", "hint":"Use quoted keys like plan[\"kind\"] and plan[\"x\"]. A missing quote or bracket is a common parser error.", "goal":"dictionary"},
+	{"title":"Godot scenes, Nodes, and methods", "lesson":"A Scene is a reusable Node tree. Nodes own behavior and children; this game uses Control Nodes for its interface and a Timer Node for battle ticks. The planner API is a RefCounted script that records build(), send(), and upgrade() method calls. In your notebook, write a real no-argument method such as func opening(): followed by an indented build(...). Save it as opening, then call opening() from the planner.", "example":"opening()", "challenge":"Save a GDScript method named opening in the notebook, then call opening() in the planner.", "hint":"Write func opening(): on the first line and indent build() on the next. Save it as a function, then run opening() in the planner.", "goal":"notebook"},
+	{"title":"Read game state", "lesson":"Plans can react to the current match state. Use lives, money, round_number, and streak_count to choose actions.", "example":"if lives < 50:\n    build(\"medic\", 4, 4)\nif round_number >= 3:\n    upgrade(4, 4)", "challenge":"Use a game-state value in a condition and queue a valid action.", "hint":"Try if lives < 100: then place a Medic on an empty non-road tile.", "goal":"state"},
+	{"title":"Capstone: compose a strategy", "lesson":"Combine typed values, conditions, arrays or loops, and methods. Godot also uses signals to let Nodes react to events, Resources to hold reusable data, and Scenes to package Nodes. This training planner runs safe GDScript against the game-action API; editing project Scenes and Node scripts happens in the Godot editor.", "example":"var kind = \"dart\"\nif money >= 200:\n    for x in range(2):\n        build(kind, x, 1)", "challenge":"Write one plan combining a variable, an if condition, and a loop that queues at least two actions.", "hint":"First declare a tower name. Put the for loop inside an if block, then indent build() inside the loop.", "goal":"capstone"},
 ]
 
 var players: Array[Dictionary] = []
@@ -240,6 +240,8 @@ var completed_lessons := 0
 var course_window: Window
 var course_title_label: Label
 var course_body_label: Label
+var course_challenge_label: Label
+var course_hint_label: Label
 var course_example_editor: TextEdit
 var course_progress_label: Label
 var course_prev_button: Button
@@ -858,6 +860,7 @@ func _build_game_ui() -> void:
 	editor_label.add_theme_font_size_override("font_size", 12)
 	command_body.add_child(editor_label)
 	code_editor = TextEdit.new()
+	code_editor.syntax_highlighter = _gdscript_highlighter()
 	code_editor.placeholder_text = "# Real GDScript runs inside func run()\nfor x in range(3):\n    build(\"dart\", x, 1)\nsend(\"red\", 5)"
 	code_editor.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	code_editor.custom_minimum_size.y = 130
@@ -890,6 +893,24 @@ func _panel_style(color: Color) -> StyleBoxFlat:
 	box.set_corner_radius_all(9)
 	box.set_content_margin_all(9)
 	return box
+
+
+func _gdscript_highlighter() -> CodeHighlighter:
+	var highlighter := CodeHighlighter.new()
+	highlighter.number_color = Color("#ffc75e")
+	highlighter.symbol_color = Color("#d4deed")
+	highlighter.function_color = Color("#80d9e6")
+	highlighter.member_variable_color = Color("#d49aff")
+	highlighter.add_color_region("\"", "\"", Color("#a7e8b6"))
+	highlighter.add_color_region("'", "'", Color("#a7e8b6"))
+	highlighter.add_color_region("#", "", Color("#71859b"), true)
+	for keyword in ["var", "const", "func", "if", "elif", "else", "for", "in", "while", "match", "and", "or", "not", "return", "pass", "break", "continue", "extends", "class", "enum", "signal", "await", "as", "is"]:
+		highlighter.add_keyword_color(keyword, Color("#d49aff"))
+	for keyword in ["true", "false", "null"]:
+		highlighter.add_keyword_color(keyword, Color("#ffc75e"))
+	for keyword in ["money", "lives", "round_number", "streak_count", "build", "send", "upgrade", "upgrade_all", "repair", "spikes", "streak", "nuke", "range"]:
+		highlighter.add_keyword_color(keyword, Color("#80d9e6"))
+	return highlighter
 
 
 func _notification(what: int) -> void:
@@ -1181,22 +1202,41 @@ func _show_learning_course() -> void:
 	layout.add_child(heading)
 	course_progress_label = Label.new()
 	layout.add_child(course_progress_label)
+	var lesson_scroll := ScrollContainer.new()
+	lesson_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	lesson_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	layout.add_child(lesson_scroll)
+	var lesson_content := VBoxContainer.new()
+	lesson_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	lesson_content.add_theme_constant_override("separation", 8)
+	lesson_scroll.add_child(lesson_content)
 	course_title_label = Label.new()
 	course_title_label.add_theme_font_size_override("font_size", 20)
 	course_title_label.add_theme_color_override("font_color", Color("#e0f6ee"))
-	layout.add_child(course_title_label)
+	lesson_content.add_child(course_title_label)
 	course_body_label = Label.new()
 	course_body_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	layout.add_child(course_body_label)
+	lesson_content.add_child(course_body_label)
 	var task_label := Label.new()
 	task_label.text = "YOUR CHALLENGE"
 	task_label.add_theme_color_override("font_color", Color("#ffc75e"))
-	layout.add_child(task_label)
+	lesson_content.add_child(task_label)
+	course_challenge_label = Label.new()
+	course_challenge_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	lesson_content.add_child(course_challenge_label)
+	var hint_label := Label.new()
+	hint_label.text = "HINT"
+	hint_label.add_theme_color_override("font_color", Color("#80d9e6"))
+	lesson_content.add_child(hint_label)
+	course_hint_label = Label.new()
+	course_hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	course_hint_label.add_theme_color_override("font_color", Color("#a8bfcb"))
+	lesson_content.add_child(course_hint_label)
 	course_example_editor = TextEdit.new()
 	course_example_editor.editable = false
-	course_example_editor.custom_minimum_size.y = 100
-	course_example_editor.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	layout.add_child(course_example_editor)
+	course_example_editor.syntax_highlighter = _gdscript_highlighter()
+	course_example_editor.custom_minimum_size.y = 120
+	lesson_content.add_child(course_example_editor)
 	var actions := HBoxContainer.new()
 	actions.add_theme_constant_override("separation", 8)
 	layout.add_child(actions)
@@ -1230,6 +1270,8 @@ func _refresh_course_window() -> void:
 		course_progress_label.text = "All 10 practical lessons completed. Keep experimenting in the planner."
 		course_title_label.text = "Academy complete"
 		course_body_label.text = "You have practiced GDScript values, conditions, loops, arrays, dictionaries, reusable plans, and game-state logic. The same language powers Godot scripts."
+		course_challenge_label.text = "Write a strategy for the next wave."
+		course_hint_label.text = "Try adapting a notebook function and protect your weakest lane."
 		course_example_editor.text = "Build a strategy of your own, then use RUN PLAN and READY."
 		course_prev_button.disabled = course_view_index <= 0
 		course_next_button.disabled = true
@@ -1238,8 +1280,9 @@ func _refresh_course_window() -> void:
 	var lesson: Dictionary = GDSCRIPT_COURSE[course_view_index]
 	course_progress_label.text = "LESSON %02d / %02d   ·   %d completed" % [course_view_index + 1, GDSCRIPT_COURSE.size(), completed_lessons]
 	course_title_label.text = lesson.title
-	course_body_label.text = lesson.lesson + "\n\nChallenge: " + lesson.challenge
-	course_body_label.text += "\n\nWrite the challenge in the planner and click RUN PLAN. A valid plan completes the lesson."
+	course_body_label.text = lesson.lesson + "\n\nWrite the challenge in the planner and click RUN PLAN. A valid plan completes the lesson."
+	course_challenge_label.text = lesson.challenge
+	course_hint_label.text = lesson.hint
 	course_example_editor.text = lesson.example
 	course_prev_button.disabled = course_view_index <= 0
 	course_next_button.disabled = course_view_index >= completed_lessons
@@ -2199,6 +2242,7 @@ func _show_notebook() -> void:
 	note_bar.add_child(_button("NEW NOTE", _new_notebook_note))
 	note_bar.add_child(_button("SAVE", _save_notebook_note))
 	notebook_editor = TextEdit.new()
+	notebook_editor.syntax_highlighter = _gdscript_highlighter()
 	notebook_editor.placeholder_text = "Write anything here. Example alias:\ndart = \"dart\"\nblue = \"blue\"\n\nOther lines can be ordinary notes; only simple name = \"text\" lines become planner aliases."
 	notebook_editor.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	notebook_editor.custom_minimum_size.y = 260

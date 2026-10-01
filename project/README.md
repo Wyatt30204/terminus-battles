@@ -37,6 +37,8 @@ Available actions: `build(kind, x, y)`, `send(kind, count)`, `upgrade(x, y)`, `u
 
 Choose **GDScript Academy** from Singleplayer to follow a guided course from basic actions through variables, loops, collections, functions, and a final challenge. Lessons explain each concept, show an example, and unlock after a valid plan demonstrates it.
 
+The planner, Academy examples, and Notebook color GDScript keywords, strings, comments, numbers, and game actions so language pieces are easy to spot.
+
 The **Notebook** keeps multiple autosaved pages of notes and reusable code. Write an alias such as `dart = "dart"` on a note page, then use `build(dart, 4, 3)` in your plan. Save reusable code as a function and call it by name in a plan. Use the notebook’s insert action to copy any selection into the planner.
 
 ## Rebuild the playtest ZIP

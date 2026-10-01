@@ -26,4 +26,3 @@ On Windows, place the Godot 4.7.1 runtime executable beside `Build_Playtest_Zip.
 - `DESIGN.md` — visual direction for the game UI
 
 The public source repository does not include the third-party Warzone music. The Windows playtest ZIP includes the audio files already selected for this game; they retain their original ownership and licensing. Source clones start without background music until you add audio you have permission to use. See [`project/music/README.md`](project/music/README.md) for filenames.
-

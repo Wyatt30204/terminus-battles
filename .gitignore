@@ -1,0 +1,25 @@
+# Godot editor cache and generated imports
+project/.godot/
+project/export_templates/
+project/feature_profiles/
+project/script_templates/
+project/text_editor_themes/
+project/music/*.mp3
+project/music/*.wav
+project/music/*.import
+
+# Local player data and generated playtest package
+.userdata/
+BTD_Godot_Playtest.zip
+BTD_Godot_Playtest.new.zip
+Terminus-Battles-Playtest.zip
+Terminus-Battles-Playtest.new.zip
+
+# Bundled engine executable is distributed in the playtest ZIP, not source control
+Godot_v4.7.1-stable_win64.exe
+
+# Common local/editor files
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
